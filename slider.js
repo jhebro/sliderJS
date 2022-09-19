@@ -19,7 +19,7 @@ function animationSlider(twn){
   var dimension = [w,h]
     var slider = document.createElement("INPUT");
   slider.setAttribute("type", "range");
-  slider.setAttribute("max", animDura);  
+  slider.setAttribute("max", animDura);   
   slider.setAttribute("min", 0); 
   slider.setAttribute("value", 3);          
   slider.setAttribute("id","slider");
