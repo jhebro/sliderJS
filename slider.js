@@ -56,7 +56,7 @@ function animationSlider(twn){
     
     var playContainer = document.querySelector('#playContainer');
      playContainer.style.width="23px";
-     playContainer.style.top=(h)+"px";
+     playContainer.style.top=(h-40)+"px";
      playContainer.style.left="10px";
      playContainer.style.position="relative";
      playContainer.style.display="none";
@@ -69,7 +69,7 @@ function animationSlider(twn){
     
     var pauseContainer = document.querySelector('#pauseContainer');
      pauseContainer.style.width="23px";
-     pauseContainer.style.top=(h)+"px";
+     pauseContainer.style.top=(h-40)+"px";
      pauseContainer.style.left="10px";
      pauseContainer.style.position="relative";
     pauseContainer.innerHTML='<svg id="Component_1_1" data-name="Component 1 – 1" xmlns="http://www.w3.org/2000/svg" width="10" height="13" viewBox="0 0 10 13"><rect id="Rectangle_1" data-name="Rectangle 1" width="4" height="13"/><rect id="Rectangle_2" data-name="Rectangle 2" width="4" height="13" transform="translate(6)"/></svg>'
@@ -81,10 +81,10 @@ var timelineCOunt = document.createElement("div");
 
 var timelineContainer = document.querySelector("#timelineCounter");
      timelineContainer.style.width="20px";
-     timelineContainer.style.top=(h-20)+"px";
+     timelineContainer.style.top=(h-60)+"px";
      timelineContainer.style.left="30px";
      timelineContainer.style.position="relative"
-      timelineContainer.style.fontSize="14px"
+      timelineContainer.style.fontSize="10px"
 
      timelineContainer.innerHTML =tween.time()
   
