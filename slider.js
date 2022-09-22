@@ -17,6 +17,22 @@ function animationSlider(twn){
   var w =document.querySelector("#mainContent").offsetWidth;
   var h = document.querySelector('#mainContent').offsetHeight;
   var dimension = [w,h]
+
+
+  var container = document.createElement("div")
+  container.setAttribute("id","container");
+  document.body.appendChild(container);
+  let containerDiv = document.querySelector("#container");
+   containerDiv.style.width = w +"px";
+   containerDiv.style.height = "30px";
+   containerDiv.style.overflow = "hidden";
+   containerDiv.style.position = "relative";
+   containerDiv.style.top = (h+10)+"px";
+
+  
+
+
+  
     var slider = document.createElement("INPUT");
   slider.setAttribute("type", "range");
   slider.setAttribute("max", animDura);   
@@ -25,11 +41,11 @@ function animationSlider(twn){
   slider.setAttribute("id","slider");
   slider.setAttribute("step",0.01);    
   slider.setAttribute("onChange","updatePause()")  
-  document.body.appendChild(slider);
+  containerDiv.appendChild(slider);
    sliderID=document.querySelector("#slider"); 
        sliderID.style.width=w+"px"
        sliderID.style.position="relative";        
-       sliderID.style.top=(h)+"px";  
+       sliderID.style.top="0px";  
 
     $("#slider").click(function(){
                // tween.pause();
@@ -56,7 +72,7 @@ function animationSlider(twn){
     
     var playContainer = document.querySelector('#playContainer');
      playContainer.style.width="23px";
-     playContainer.style.top=(h-40)+"px";
+     playContainer.style.top=(h)+"px";
      playContainer.style.left="10px";
      playContainer.style.position="relative";
      playContainer.style.display="none";
@@ -69,7 +85,7 @@ function animationSlider(twn){
     
     var pauseContainer = document.querySelector('#pauseContainer');
      pauseContainer.style.width="23px";
-     pauseContainer.style.top=(h-40)+"px";
+     pauseContainer.style.top=(h)+"px";
      pauseContainer.style.left="10px";
      pauseContainer.style.position="relative";
     pauseContainer.innerHTML='<svg id="Component_1_1" data-name="Component 1 – 1" xmlns="http://www.w3.org/2000/svg" width="10" height="13" viewBox="0 0 10 13"><rect id="Rectangle_1" data-name="Rectangle 1" width="4" height="13"/><rect id="Rectangle_2" data-name="Rectangle 2" width="4" height="13" transform="translate(6)"/></svg>'
@@ -81,10 +97,10 @@ var timelineCOunt = document.createElement("div");
 
 var timelineContainer = document.querySelector("#timelineCounter");
      timelineContainer.style.width="20px";
-     timelineContainer.style.top=(h-60)+"px";
+     timelineContainer.style.top=(h-20)+"px";
      timelineContainer.style.left="30px";
      timelineContainer.style.position="relative"
-      timelineContainer.style.fontSize="10px"
+      timelineContainer.style.fontSize="14px"
 
      timelineContainer.innerHTML =tween.time()
   
@@ -100,7 +116,7 @@ var timelineContainer = document.querySelector("#timelineCounter");
   tween.play();
    pauseContainer.style.display ="block";
    playContainer.style.display ="none";
-    callConst(slider);
+    callConst(slider,twn);
      
 });      
 
@@ -111,11 +127,11 @@ var timelineContainer = document.querySelector("#timelineCounter");
 
 
 
-    function callConst(v){
+    function callConst(v,t){
               updateInterval= setInterval(function(){
                   v.value=tween.time();
                   var timelineContainer = document.querySelector("#timelineCounter");
-                   var tweenTime = tween.time();
+                   var tweenTime = t.time();
                    var twoDecimal =tweenTime.toFixed(2);
                   timelineContainer.innerHTML = twoDecimal;
                 // console.log(tween.time());
@@ -130,10 +146,3 @@ function updateSlider(t){
 function updatePause(){
   twnID.pause(sliderID.value);
 }
-
-
-
-
-
-
-        
